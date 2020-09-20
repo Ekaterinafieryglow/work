@@ -16,7 +16,7 @@ int main
     cin << amount;
     
     do 
-	{
+    {
 		cout << "Возможные команды: encode, decode. Ваша команда:  ";
 		cin >> command;
 		if (command == "decode")
@@ -29,15 +29,16 @@ int main
 			}
 			cout << "Зашифрованное сообщение:  " << str << endl;
 		}
+		if (command == "encode")
+		{
+			for (int i = 0; i < strlen(str); i++)
+			{
+				str[i] += amount;
+			}
+		}
+		cout << "Расшифрованное сообщение:  " << str << endl;
     }
-	while ((command != "encode") and (command != "decode"));
-
-
-    for (int i =0, i < strlen(str); i++)
-    {
-        str[i] += amount;
-    }
-    cout << "Расшифрованное сообщение: " << str << endl;
+    while ((command != "encode") and (command != "decode"));
 
     system("pause");
     return 0;
