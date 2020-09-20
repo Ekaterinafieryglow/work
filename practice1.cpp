@@ -6,6 +6,7 @@ int main
     setlocale(0, "rus");
     char str[80] = {0};
 
+    string command;
     int amount;
 
     count << "Сообщение вводится БЕЗ пробелов на АНГЛИЙСКОМ языке!";
@@ -13,12 +14,24 @@ int main
     cin >> str;
     cout << "Введите сдвиг: ";
     cin << amount;
-
-    for (int i =0, i < strlen(str); i++)
-    {
-        str[i] -= amount;
+    
+    do 
+	{
+		cout << "Возможные команды: encode, decode. Ваша команда:  ";
+		cin >> command;
+		if (command == "decode")
+		{
+			for (int i = 0; i < strlen(str); i++)
+			{
+				{
+					str[i] -= amount;
+				}
+			}
+			cout << "Зашифрованное сообщение:  " << str << endl;
+		}
     }
-    cout << "Зашифрованное сообщение: " << str << endl;
+	while ((command != "encode") and (command != "decode"));
+
 
     for (int i =0, i < strlen(str); i++)
     {
